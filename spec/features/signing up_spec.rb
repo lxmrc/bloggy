@@ -19,7 +19,7 @@ RSpec.feature 'Signing up', type: :feature do
     fill_in 'Password', with: ''
     fill_in 'Password confirmation', with: ''
     click_button 'Sign up'
-    expect(page).to have_content("Password can't be blank")
+    expect(page).to have_content("can't be blank")
   end
 
   scenario 'without matching password confirmation' do
@@ -27,7 +27,7 @@ RSpec.feature 'Signing up', type: :feature do
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'something else'
     click_button 'Sign up'
-    expect(page).to have_content("Password confirmation doesn't match")
+    expect(page).to have_content("doesn't match")
   end
 
   scenario "with password that's too short" do
@@ -35,6 +35,6 @@ RSpec.feature 'Signing up', type: :feature do
     fill_in 'Password', with: 'abc'
     fill_in 'Password confirmation', with: 'abc'
     click_button 'Sign up'
-    expect(page).to have_content("Password is too short")
+    expect(page).to have_content("too short")
   end
 end
