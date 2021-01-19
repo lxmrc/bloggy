@@ -1,0 +1,7 @@
+<div class="post">
+  <% if post.title %>
+    <h3><%= post.title %></h3>
+  <% end %>
+  <p><%= post.content %></p>
+  <small><%= time_ago_in_words(post.created_at) %> ago</small>
+</div>
