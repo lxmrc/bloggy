@@ -5,6 +5,7 @@
     </header>
     <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.text_field :username %>
       <%= f.password_field :password %>
       <%= f.password_field :password_confirmation %>
       <%= f.primary "Sign up" %>

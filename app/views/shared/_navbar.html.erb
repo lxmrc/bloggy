@@ -8,5 +8,7 @@
             <%= fa_icon('edit') %> Post
         <% end %>
       </li>
-  </ul>
+      <li><%= button_to 'Log out', destroy_user_session_path, method: :delete, class: 'link-button' %></li>
+    </ul>
+  </div>
 </nav>

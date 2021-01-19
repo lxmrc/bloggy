@@ -8,14 +8,24 @@ RSpec.feature 'Signing up', type: :feature do
 
   scenario 'with valid details' do
     fill_in 'Email', with: 'test@example.com'
+    fill_in 'Username', with: 'Test User'
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
     click_button 'Sign up'
     expect(page).to have_content("You have signed up successfully.")
   end
 
+  scenario 'with missing username' do
+    fill_in 'Email', with: 'test@example.com'
+    fill_in 'Password', with: ''
+    fill_in 'Password confirmation', with: ''
+    click_button 'Sign up'
+    expect(page).to have_content("can't be blank")
+  end
+
   scenario 'with blank password' do
     fill_in 'Email', with: 'test@example.com'
+    fill_in 'Username', with: 'Test User'
     fill_in 'Password', with: ''
     fill_in 'Password confirmation', with: ''
     click_button 'Sign up'
@@ -24,6 +34,7 @@ RSpec.feature 'Signing up', type: :feature do
 
   scenario 'without matching password confirmation' do
     fill_in 'Email', with: 'test@example.com'
+    fill_in 'Username', with: 'Test User'
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'something else'
     click_button 'Sign up'
@@ -32,6 +43,7 @@ RSpec.feature 'Signing up', type: :feature do
 
   scenario "with password that's too short" do
     fill_in 'Email', with: 'test@example.com'
+    fill_in 'Username', with: 'Test User'
     fill_in 'Password', with: 'abc'
     fill_in 'Password confirmation', with: 'abc'
     click_button 'Sign up'
