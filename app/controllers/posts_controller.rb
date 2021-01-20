@@ -7,6 +7,16 @@ class PostsController < ApplicationController
     @post = current_user.posts.build
   end
 
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    @post.update(post_params)
+    redirect_to current_user
+  end
+
   def create
     @post = current_user.posts.build(post_params)
 
