@@ -1,0 +1,7 @@
+<%= link_to post_likes_path(post), 
+  method: :post,
+  remote: true,
+  class: 'btn btn-outline-danger btn-sm',
+  id: "like-#{post.id}" do %>
+    <i class="far fa-heart"></i>
+<% end %>

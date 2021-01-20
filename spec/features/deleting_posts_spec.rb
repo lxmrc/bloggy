@@ -9,7 +9,7 @@ RSpec.feature "Deleting posts", type: :feature do
     visit user_path(user)
   end
 
-  scenario 'successfully' do
+  scenario 'successfully', js: true do
     accept_alert do
       click_link "delete-#{post.id}"
     end

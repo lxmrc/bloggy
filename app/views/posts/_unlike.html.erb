@@ -1,0 +1,7 @@
+<%= link_to post_like_path(post, like), 
+  method: :delete,
+  remote: true,
+  class: 'btn btn-danger btn-sm',
+  id: "unlike-#{post.id}" do %>
+    <i class="far fa-heart"></i>
+<% end %>

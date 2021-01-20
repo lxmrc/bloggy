@@ -1,0 +1,2 @@
+$('#likes-<%= @post.id %>').html("<%= pluralize(@post.likes.count, 'like') %>")
+$('#like-unlike-<%= @post.id %>').html("<%= escape_javascript(render 'posts/unlike', post: @post, like: @post.likes.find { |like| like.user == current_user }) %>")
