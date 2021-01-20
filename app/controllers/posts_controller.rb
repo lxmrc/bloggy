@@ -1,4 +1,8 @@
 class PostsController < ApplicationController
+  def index
+    @posts = Post.all.reverse
+  end
+
   def new
     @post = current_user.posts.build
   end

@@ -1,0 +1,5 @@
+<% if user.profile_picture.attached? %>
+  <%= link_to user_path(user) do %>
+    <%= image_tag user.profile_picture.variant(resize: "100x100>"), class: 'img-thumbnail' %>
+  <% end %>
+<% end %>
