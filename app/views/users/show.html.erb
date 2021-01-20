@@ -10,7 +10,7 @@
           <div class="col-md-8">
             <div class="card-body">
               <h3 class="card-title"><%= @user.username %></h3>
-              <p class="card-text">Bio goes here. Lorem ipsum yadda yadda yadda. </p>
+              <p class="card-text"><%= @user.description %></p>
               <% if current_user == @user %>
                 <%= link_to 'New post', new_post_path, class: 'btn btn-primary btn-sm' %>
                 <%= link_to 'Edit profile', edit_user_registration_path(@user), class: 'btn btn-primary btn-sm'%>
