@@ -4,8 +4,10 @@
     <p><%= post.content %></p>
   </div>
   <div class="card-footer text-muted">
-    <small><%= time_ago_in_words(post.created_at) %> ago &middot; 
-    <span id="likes-<%= post.id %>"><%= pluralize(post.likes.count, 'like') %></span></small>
+    <%= link_to(post_path(post), class: 'link-dark') do %>
+      <small><%= time_ago_in_words(post.created_at) %> ago &middot; 
+      <span id="likes-<%= post.id %>"><%= pluralize(post.likes.count, 'like') %></span></small>
+    <% end %>
     <div class="float-right">
       <span id="like-unlike-<%= post.id %>">
         <% like = post.likes.find { |like| like.user == current_user } %>
