@@ -1,7 +1,14 @@
-<div class="post">
-  <% if post.title %>
-    <h3><%= post.title %></h3>
-  <% end %>
-  <p><%= post.content %></p>
-  <small><%= time_ago_in_words(post.created_at) %> ago</small>
+<div class="card my-5">
+  <div class="card-body">
+    <% if post.title %>
+      <h4><%= post.title %></h4>
+    <% end %>
+    <p><%= post.content %></p>
+  </div>
+  <div class="card-footer text-muted">
+    <small><%= time_ago_in_words(post.created_at) %> ago &middot; 0 notes</small>
+    <div class="float-right">
+        <a href="#" class="btn btn-danger btn-sm"><i class="far fa-heart"></i></a>
+    </div>
+  </div>
 </div>

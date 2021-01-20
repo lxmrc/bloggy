@@ -1,10 +1,8 @@
-.links {
-  list-style: none;
+.card-img {
+  object-fit: cover;
+  height: 100%;
 }
 
-.post {
-  margin: 2em auto;
-  padding: 1em;
-  border: 1px solid #eee;
-  border-radius: 6px;
+.like-button {
+  height: 1.2em;
 }
