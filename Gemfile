@@ -13,6 +13,7 @@ gem 'image_processing', '~> 1.2'
 gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'bootstrap_form', '~> 4.5'
 gem 'font_awesome5_rails', '~> 1.3'
+gem "aws-sdk-s3", require: false
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
