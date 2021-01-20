@@ -1,4 +1,4 @@
-<div class="card my-5">
+<div class="card mb-4">
   <div class="card-body">
     <% if post.title %>
       <h4><%= post.title %></h4>
@@ -9,6 +9,15 @@
     <small><%= time_ago_in_words(post.created_at) %> ago &middot; 0 notes</small>
     <div class="float-right">
         <a href="#" class="btn btn-danger btn-sm"><i class="far fa-heart"></i></a>
+        <% if current_user == @user %>
+          <%= link_to post_path(post), 
+            method: :delete, 
+            class: 'btn btn-secondary btn-sm',
+            id: "delete-#{post.id}",
+            data: { confirm: "Are you sure you want to delete this post?" } do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
+        <% end %>
     </div>
   </div>
 </div>
