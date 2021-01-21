@@ -6,7 +6,7 @@
           <%= render 'users/icon', user: post.user %>
         </div>
         <div class="col-9">
-          <%= render post %>
+          <%= render post, user: post.user %>
         </div>
       </div>
     <% end %>
