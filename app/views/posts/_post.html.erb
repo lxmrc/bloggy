@@ -1,5 +1,6 @@
 <div class="card mb-4">
   <div class="card-body">
+    <h5 class="username-small"><%= link_to post.user.username, post.user, class: 'link-dark' %></h5>
     <%= image_tag post.image if post.image.attached? %>
     <p><%= post.content %></p>
   </div>
