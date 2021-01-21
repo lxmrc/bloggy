@@ -7,11 +7,16 @@
 <div class="row mb-4">
   <div class="col-6 mx-auto">
     <ul class="list-group">
-    <% @post.likes.each do |like| %>
-      <li class="list-group-item p-2">
-    <%= image_tag like.user.profile_picture.variant(combine_options: {resize: '20x20^', extent: '20x20', gravity: 'Center'}), class: 'img-thumbnail'%>
-    <%= link_to "#{like.user.username} likes this.", like.user, class: 'link-dark' %></li>
-    <% end %>
-  </ul>
+      <% @post.likes.each do |like| %>
+        <li class="list-group-item p-2">
+          <% if like.user.profile_picture.attached? %>
+            <%= image_tag like.user.profile_picture.variant(combine_options: {resize: '20x20^', extent: '20x20', gravity: 'Center'}), class: 'img-thumbnail'%>
+          <% else %>
+            <%= image_tag 'https://via.placeholder.com/20', class: 'img-thumbnail' %>
+          <% end %>
+          <%= link_to "#{like.user.username} likes this.", like.user, class: 'link-dark' %>
+        </li>
+      <% end %>
+    </ul>
   </div>
 </div>
