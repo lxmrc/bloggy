@@ -9,11 +9,9 @@ RSpec.feature 'Creating posts', type: :feature do
   end
 
   scenario 'with a title' do
-    fill_in 'Title', with: 'Test Post'
     fill_in 'Say something...', with: 'This is a post with a title.'
     click_button 'Post'
 
-    expect(page).to have_content('Test Post')
     expect(page).to have_content('This is a post with a title.')
   end
 
