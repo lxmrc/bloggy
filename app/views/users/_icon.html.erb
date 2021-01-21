@@ -1,5 +1,5 @@
 <% if user.profile_picture.attached? %>
   <%= link_to user_path(user) do %>
-    <%= image_tag user.profile_picture.variant(combine_options: {resize: '100x100^', extent: '100x100', gravity: 'Center'}), class: 'img-thumbnail' %>
+    <%= image_tag user.profile_picture.variant(combine_options: {resize: '100x100^', extent: '100x100', gravity: 'Center'}).processed, class: 'img-thumbnail' %>
   <% end %>
 <% end %>

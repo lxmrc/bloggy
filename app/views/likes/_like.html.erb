@@ -1,6 +1,6 @@
 <li class="list-group-item p-2">
   <% if like.user.profile_picture.attached? %>
-    <%= image_tag like.user.profile_picture.variant(combine_options: {resize: '20x20^', extent: '20x20', gravity: 'Center'}), class: 'img-thumbnail'%>
+    <%= image_tag like.user.profile_picture.variant(combine_options: {resize: '20x20^', extent: '20x20', gravity: 'Center'}).processed, class: 'img-thumbnail'%>
   <% else %>
     <%= image_tag 'https://via.placeholder.com/20', class: 'img-thumbnail' %>
   <% end %>
