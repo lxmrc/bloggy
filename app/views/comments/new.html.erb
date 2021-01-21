@@ -1,0 +1,4 @@
+<%= bootstrap_form_for([@post, @comment]) do |f| %>
+  <%= f.text_area :content, label: 'Say something...' %>
+  <%= f.primary "Post comment" %>
+<% end %>

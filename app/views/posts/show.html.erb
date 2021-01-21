@@ -7,14 +7,17 @@
 <div class="row mb-4">
   <div class="col-6 mx-auto">
     <ul class="list-group">
-      <% @post.likes.each do |like| %>
+      <% items = @post.comments + @post.likes %>
+      <% items.sort { |item| item.created_at }.each do |item| %>
+        <% user = item.user %>
         <li class="list-group-item p-2">
-          <% if like.user.profile_picture.attached? %>
-            <%= image_tag like.user.profile_picture.variant(combine_options: {resize: '20x20^', extent: '20x20', gravity: 'Center'}), class: 'img-thumbnail'%>
+          <% if user.profile_picture.attached? %>
+            <%= image_tag user.profile_picture.variant(combine_options: {resize: '20x20^', extent: '20x20', gravity: 'Center'}), class: 'img-thumbnail'%>
           <% else %>
             <%= image_tag 'https://via.placeholder.com/20', class: 'img-thumbnail' %>
           <% end %>
-          <%= link_to "#{like.user.username} likes this.", like.user, class: 'link-dark' %>
+          <%= link_to "#{user.username}" , user, class: 'link-dark' %> wrote:
+          <%= render item %>
         </li>
       <% end %>
     </ul>
