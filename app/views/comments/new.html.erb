@@ -1,5 +1,5 @@
-<div class="row">
-  <div class="col-md-8  mx-auto">
+<div class="row my-4">
+  <div class="col-md-6  mx-auto">
     <%= bootstrap_form_for([@post, @comment]) do |f| %>
       <%= f.text_area :content, label: 'Say something...' %>
       <%= f.primary "Post comment" %>

@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+    @posts = @cache || update_cache
   end
 
   def show
@@ -18,6 +18,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     @post.update(post_params)
+    update_cache
     redirect_to current_user
   end
 
@@ -25,6 +26,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
 
     if @post.save
+      update_cache
       redirect_to current_user
     end
   end
@@ -36,6 +38,10 @@ class PostsController < ApplicationController
   end
 
   private
+
+    def update_cache
+      @cache = Post.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+    end
   
     def post_params
       params.require(:post).permit(:title, :content, :image)
