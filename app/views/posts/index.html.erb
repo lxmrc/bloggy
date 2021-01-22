@@ -1,8 +1,10 @@
 <div class="row mb-4">
   <div class="col-8 mx-auto">
-    <%= render @posts %>
+    <% @posts.each do |post| %>
+      <%= render 'posts/dashboard_post', post: post %>
+    <% end %>
     <div class="row mb-4">
-      <div class="col-8 mx-auto">
+      <div class="col-6 mx-auto">
         <div class="d-flex">
           <div class="mx-auto">
             <%= will_paginate @posts, 

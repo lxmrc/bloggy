@@ -1,13 +1,13 @@
 <div class="row mb-4">
   <div class="col-6 mx-auto">
-      <div class="card" style="max-width: 540px;">
+      <div class="card" >
         <div class="row no-gutters">
-          <div class="col-md-4">
+          <div class="col-md-3">
             <% if @user.profile_picture.attached? %>
-                <%= image_tag @user.profile_picture.variant(resize: "250x250>"), class: 'card-img' %>
+              <%= image_tag @user.profile_picture.variant(combine_options: {resize: '200x200^', extent: '200x200', gravity: 'Center'}).processed, class: 'card-img' %>
             <% end %>
           </div>
-          <div class="col-md-8">
+          <div class="col-md-5">
             <div class="card-body">
               <h3 class="card-title"><%= @user.username %></h3>
               <p class="card-text"><%= @user.description %></p>
