@@ -17,6 +17,7 @@ gem 'aws-sdk-s3', require: false
 gem 'friendly_id', '~> 5.4.0'
 gem 'bootstrap-will_paginate'
 gem 'scout_apm'
+gem 'newrelic_rpm'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
