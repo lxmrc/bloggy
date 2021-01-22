@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
-    fresh_when etag: @posts, last_modified: @posts.last.created_at
   end
 
   def show
