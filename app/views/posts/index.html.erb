@@ -1,7 +1,9 @@
 <div class="row mb-4">
   <div class="col-8 mx-auto">
-    <% @posts.each do |post| %>
-      <%= render 'posts/dashboard_post', post: post %>
+    <% cache(@posts) do %>
+      <% @posts.each do |post| %>
+        <%= render 'posts/dashboard_post', post: post %>
+      <% end %>
     <% end %>
   </div>
 </div>
