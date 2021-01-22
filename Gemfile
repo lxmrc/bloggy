@@ -16,6 +16,7 @@ gem 'font_awesome5_rails', '~> 1.3'
 gem 'aws-sdk-s3', require: false
 gem 'friendly_id', '~> 5.4.0'
 gem 'bootstrap-will_paginate'
+gem 'scout_apm'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
