@@ -1,0 +1,4 @@
+<%= link_to(post_path(post), class: 'link-dark') do %>
+  <small><%= time_ago_in_words(post.created_at) %> ago &middot; 
+  <span id="likes-<%= post.id %>"><%= pluralize(post.notes.count, 'note') %></span></small>
+<% end %>

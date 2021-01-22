@@ -10,13 +10,13 @@ RSpec.feature "Users can like and unlike posts", type: :feature do
   end
 
   scenario 'successfully', js: true do
-    expect(page).to have_content("0 likes")
+    expect(page).to have_content("0 notes")
     click_link "like-#{post.id}"
-    expect(page).to have_content("1 like")
+    expect(page).to have_content("1 note")
     click_link "unlike-#{post.id}"
-    expect(page).to have_content("0 likes")
+    expect(page).to have_content("0 notes")
     click_link "like-#{post.id}"
-    expect(page).to have_content("1 like")
+    expect(page).to have_content("1 note")
   end
 
 end

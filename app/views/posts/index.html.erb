@@ -1,14 +1,16 @@
 <div class="row mb-4">
   <div class="col-8 mx-auto">
-    <% @posts.each do |post| %>
-      <div class="row">
-        <div class="col-2">
-          <%= render 'users/icon', user: post.user %>
-        </div>
-        <div class="col-9">
-          <%= render post, user: post.user %>
+    <%= render @posts %>
+    <div class="row mb-4">
+      <div class="col-8 mx-auto">
+        <div class="d-flex">
+          <div class="mx-auto">
+            <%= will_paginate @posts, 
+              :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+            </div>
+          </div>
         </div>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>

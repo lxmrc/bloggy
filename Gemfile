@@ -13,11 +13,13 @@ gem 'image_processing', '~> 1.2'
 gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'bootstrap_form', '~> 4.5'
 gem 'font_awesome5_rails', '~> 1.3'
-gem "aws-sdk-s3", require: false
+gem 'aws-sdk-s3', require: false
 gem 'friendly_id', '~> 5.4.0'
+gem 'bootstrap-will_paginate'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
+  gem 'faker'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'capybara'
@@ -27,6 +29,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'rack-mini-profiler'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.2'
   gem 'spring'

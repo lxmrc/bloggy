@@ -1,42 +1,23 @@
-<div class="card mb-4">
-  <div class="card-body">
-    <h5 class="username-small"><%= link_to post.user.username, post.user, class: 'link-dark' %></h5>
-    <% if post.image.attached? %>
-      <%= image_tag post.image, class: 'img-fluid' %>
-    <% end %>
-    <p><%= post.content %></p>
+<div class="row">
+  <div class="col-2">
+    <%= render 'users/icon', user: post.user %>
   </div>
-  <div class="card-footer text-muted">
-    <%= link_to(post_path(post), class: 'link-dark') do %>
-      <small><%= time_ago_in_words(post.created_at) %> ago &middot; 
-      <span id="likes-<%= post.id %>"><%= pluralize(post.notes.count, 'note') %></span></small>
-    <% end %>
-    <div class="float-right">
-      <%= link_to new_post_comment_path(post),
-        class: 'btn btn-outline-primary btn-sm' do %>
-        <i class="far fa-comment"></i>
-      <% end %>
-      <span id="like-unlike-<%= post.id %>">
-        <% like = post.likes.find { |like| like.user == current_user } %>
-        <% if like %>
-          <%= render 'posts/unlike', post: post, like: like %>
-        <% else %>
-          <%= render 'posts/like', post: post %>
+  <div class="col-10">
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="username-small"><%= link_to post.user.username, post.user, class: 'link-dark' %></h5>
+        <% if post.image.attached? %>
+          <%= image_tag post.image, class: 'img-fluid' %>
         <% end %>
-      </span>
-      <% if current_user == post.user %>
-        <%= link_to edit_post_path(post), 
-          class: 'btn btn-outline-success btn-sm' do %>
-          <i class="fas fa-pencil-alt"></i>
-        <% end %>
-        <%= link_to post_path(post), 
-          method: :delete, 
-          class: 'btn btn-outline-secondary btn-sm',
-          id: "delete-#{post.id}",
-          data: { confirm: "are you sure you want to delete this post?" } do %>
-          <i class="fas fa-trash-alt"></i>
-        <% end %>
-      <% end %>
+        <p><%= post.content %></p>
+      </div>
+      <div class="card-footer text-muted">
+            <%= render 'posts/time_and_notes', post: post%>
+        <div class="float-right">
+            <%= render 'posts/interaction_buttons', post: post%>
+            <%= render 'posts/current_user_buttons', post: post%>
+        </div>
+      </div>
     </div>
   </div>
 </div>
